@@ -111,7 +111,7 @@ describe(`plugin-conversation`, function() {
         .then((c) => {conversation2 = c;})
     ]));
 
-    it(`retrieves a set of conversations`, () => spark.conversation.list({
+    it(`retrieves a set of conversations @canary`, () => spark.conversation.list({
       conversationsLimit: 2
     })
       .then((conversations) => {
