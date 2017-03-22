@@ -68,6 +68,8 @@ function _extractFromEnv(options) {
     count = 1;
   }
 
+  console.log("extracting " + count + " users from environment");
+    
   var users = [{
     id: process.env.CISCOSPARK_ID || process.env.CISCOSPARK_ID_0,
     token: {
@@ -98,6 +100,8 @@ function _extractFromEnv(options) {
     assert(users[j].access_token, 'No access token available for user' + j);
   }
 
+  console.log("extracted users: " + users);
+
   return users;
 }
 
@@ -118,7 +122,7 @@ module.exports = {
     assert(process.env.COMMON_IDENTITY_CLIENT_SECRET, 'COMMON_IDENTITY_CLIENT_SECRET must be defined');
 
     return new Promise(function(resolve) {
-      resolve(process.env.USE_ENVIRONMENTAL_USERS || !tui ? _extractFromEnv(options) : _create(options));
+      resolve((process.env.USE_ENVIRONMENTAL_USERS || !tui) ? _extractFromEnv(options) : _create(options));
     });
   },
 
