@@ -68,8 +68,6 @@ function _extractFromEnv(options) {
     count = 1;
   }
 
-  console.log("extracting " + count + " users from environment");
-    
   var users = [{
     id: process.env.CISCOSPARK_ID || process.env.CISCOSPARK_ID_0,
     token: {
@@ -97,10 +95,8 @@ function _extractFromEnv(options) {
   }
 
   for (var j = 0; j < count; j++) {
-    assert(users[j].access_token, 'No access token available for user' + j);
+    assert(users[j].token.access_token, 'No access token available for user' + j);
   }
-
-  console.log("extracted users: " + users);
 
   return users;
 }
