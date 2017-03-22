@@ -193,8 +193,8 @@ describe(`plugin-search`, () => {
       {
         given: {
           user: `spock`,
-          query: `hElLo`,
-          canary: true
+          query: `hElLo` //,
+          // canary: false
         },
         expected: {
           path: `object.displayName`,
